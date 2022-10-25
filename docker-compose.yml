@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  site:
+    image: httpd
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - /imagens/meu-site:/usr/local/apache2/htdocs/
+    networks:
+      - redisnet
+      - dbnet
+volumes:
+  site_data:
+networks:
+  dbnet:
+  redisnet:
